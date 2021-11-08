@@ -1,12 +1,12 @@
 ## Email Service REST API
 
 ### Requirements:
-[Install Docker](https://docs.docker.com/get-docker/)
-[Install docker-compose](https://docs.docker.com/compose/install/)
+- [Install Docker](https://docs.docker.com/get-docker/)
+- [Install docker-compose](https://docs.docker.com/compose/install/)
 
 ### To Run and test:
 
-Create an .env file in the root of the project directory like:
+- Create an .env file in the root of the project directory like:
 
 ```
 SECRET_KEY=secretkey
@@ -16,15 +16,15 @@ SENDGRID_API_KEY=sendgridapikey
 MAILGUN_API_KEY=mailgunapikey
 ```
 
-Add values for django secret key and sendgrid and mailgun api keys
+- Add values for django secret key and sendgrid and mailgun api keys
 
-then:
+- then:
 
 
-`docker-compose build`
-`docker-compose up`
+- `docker-compose build`
+- `docker-compose up`
 
-`curl -X POST -H 'Content-Type: application/json' -d '{ \
+- `curl -X POST -H 'Content-Type: application/json' -d '{ \
     "to": "fake@fake.com", \
     "to_name": "Mr. Fake", \
     "from": "no-reply@fake.com", \
