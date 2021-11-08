@@ -29,14 +29,3 @@ class EmailView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)   
-
-"""
-{
-"from":"walterc@vt.edu",
-"to":"walterc@vt.edu",
-"to_name":"Walter C.",
-"from_name":"Also Walter C.",
-"subject":"test email",
-"body":"<h1>title</h1><p>test email</p>"
-}
-"""

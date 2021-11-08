@@ -23,14 +23,7 @@ then:
 - `docker-compose build`
 - `docker-compose up`
 
-- `curl -X POST -H 'Content-Type: application/json' -d '{ \
-    "to": "fake@fake.com", \
-    "to_name": "Mr. Fake", \
-    "from": "no-reply@fake.com", \
-    "from_name": "Ms. Fake", \
-    "subject": "A message from The Fake Family", \
-    "body": "<h1>Your Bill</h1><p>$10</p>" \
-}'`
+- `curl -X POST localhost:8000/email -H 'Content-Type: application/json' -d '{ "to": "fake@fake.com", "to_name": "Mr. Fake", "from": "no-reply@fake.com", "from_name": "Ms. Fake", "subject": "A message from The Fake Family", "body": "<h1>Your Bill</h1><p>$10</p>"}'`
 
 ### Configuring:
 To change between email providers simply edit the .env file, changing the EMAIL_PROVIDER value from `mailgun` to `sendgrid` and restart the docker-compose service
@@ -44,7 +37,7 @@ I chose to use django restframework because it provides a ton of functionality t
 
 The other packages I used I chose because they provided a specific functionality I did not want to have to implement myself, like requests to handle the API calls and html2text for converting html to plaintext.
 
-## Tradeoffs
+## Tradeoffs:
 The main tradeoff I made is that the code is overengineered for the relatively simple task of POSTing requests to two email providers. I did this mainly so the solution would be easily extensible. If this had been a real application, in the future we would surely want to add more endpoints beyond a single POST endpoint and more functionality in general. I also designed it in a way that more email providers could be added easily, by creating a class that inherits from the EmailProvider class and editing EmailService to include the new provider.
 ## Future work:
 I spent about 3.5 hours on this exercise. If were to spend more time on these are some things I would improve:
